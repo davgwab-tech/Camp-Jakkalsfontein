@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons (For Amenities only) -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- Tailwind CSS Setup -->
@@ -128,16 +128,16 @@
         details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased overflow-x-hidden w-full relative">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-40 bg-brand-white/95 backdrop-blur-sm border-b border-brand-soil shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 sm:h-24">
                 
                 <!-- Logo -->
-                <a href="#" class="flex items-center gap-3">
-                    <img src="images/Camp-Jakkalsfontein-Logo.png" alt="Camp Jakkalsfontein Logo" class="h-16 w-auto object-contain drop-shadow-sm" onerror="this.onerror=null; this.outerHTML='<span class=\'font-heading font-bold text-2xl text-brand-dark-purple\'>Jakkalsfontein</span>';">
+                <a href="#" class="flex items-center gap-2 shrink-0">
+                    <img src="images/Camp-Jakkalsfontein-Logo.png" alt="Camp Jakkalsfontein Logo" class="h-9 sm:h-14 lg:h-16 w-auto object-contain drop-shadow-sm" onerror="this.onerror=null; this.outerHTML='<span class=\'font-heading font-bold text-lg sm:text-2xl text-brand-dark-purple\'>Jakkalsfontein</span>';">
                 </a>
                 
                 <!-- Desktop Menu -->
@@ -151,13 +151,16 @@
                     <a href="#availability" class="font-ui font-medium text-brand-dark-purple hover:text-brand-orange transition-colors">
                         <span class="lang-en">Calendar</span><span class="lang-af">Kalender</span>
                     </a>
+                    <a href="#rules" class="font-ui font-medium text-brand-dark-purple hover:text-brand-orange transition-colors">
+                        <span class="lang-en">Rules & T&Cs</span><span class="lang-af">Reëls & T&Vs</span>
+                    </a>
                     <a href="#faq" class="font-ui font-medium text-brand-dark-purple hover:text-brand-orange transition-colors">
                         <span class="lang-en">FAQ</span><span class="lang-af">Gereelde Vrae</span>
                     </a>
                     
                     <!-- Language Toggle Button -->
-                    <button onclick="toggleLang()" class="flex items-center space-x-2 font-ui text-sm border-2 border-brand-purple text-brand-purple rounded-full px-4 py-1.5 hover:bg-brand-purple hover:text-brand-white transition-colors font-bold">
-                        <i data-lucide="globe" class="w-4 h-4"></i>
+                    <button onclick="toggleLang()" class="flex items-center space-x-2 font-ui text-sm border-2 border-brand-purple text-brand-purple rounded-full px-4 py-1.5 hover:bg-brand-purple hover:text-brand-white transition-colors font-bold group">
+                        <i data-lucide="globe" class="w-4 h-4 text-brand-purple group-hover:text-brand-white transition-colors"></i>
                         <span class="lang-en">Afrikaans</span>
                         <span class="lang-af">English</span>
                     </button>
@@ -167,13 +170,14 @@
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="lg:hidden flex items-center gap-3">
-                    <button onclick="toggleLang()" class="font-ui text-xs border border-brand-purple text-brand-purple rounded-full px-3 py-1 font-bold">
-                        <span class="lang-en">AF</span><span class="lang-af">EN</span>
+                <!-- Mobile Menu Header Actions -->
+                <div class="lg:hidden flex items-center gap-1.5 sm:gap-2">
+                    <button onclick="toggleLang()" class="flex items-center gap-1 font-ui text-[10px] sm:text-xs border-2 border-brand-purple text-brand-purple rounded-full px-2 sm:px-3 py-1 font-bold hover:bg-brand-purple hover:text-brand-white transition-colors group shrink-0">
+                        <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-purple group-hover:text-brand-white transition-colors shrink-0"></i>
+                        <span class="lang-en">AFRIKAANS</span><span class="lang-af">ENGLISH</span>
                     </button>
-                    <button id="mobile-menu-btn" class="text-brand-dark-purple p-2 rounded-lg bg-brand-earth hover:bg-brand-soil/30 transition-colors">
-                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    <button id="mobile-menu-btn" class="text-brand-dark-purple p-1.5 sm:p-2 rounded-lg bg-brand-earth hover:bg-brand-soil/30 transition-colors shrink-0">
+                        <i data-lucide="menu" class="w-6 h-6 sm:w-7 sm:h-7"></i>
                     </button>
                 </div>
             </div>
@@ -191,6 +195,9 @@
                 <a href="#availability" class="block font-ui font-medium text-brand-dark-purple py-3 text-lg border-b border-brand-soil/20">
                     <span class="lang-en">Calendar</span><span class="lang-af">Kalender</span>
                 </a>
+                <a href="#rules" class="block font-ui font-medium text-brand-dark-purple py-3 text-lg border-b border-brand-soil/20">
+                    <span class="lang-en">Rules & T&Cs</span><span class="lang-af">Reëls & T&Vs</span>
+                </a>
                 <a href="#faq" class="block font-ui font-medium text-brand-dark-purple py-3 text-lg border-b border-brand-soil/20">
                     <span class="lang-en">FAQ</span><span class="lang-af">Gereelde Vrae</span>
                 </a>
@@ -198,72 +205,57 @@
                 <a href="#booking" class="block btn btn-primary w-full mt-6 py-4 text-base shadow-lg">
                     <span class="lang-en">Book Now</span><span class="lang-af">Bespreek Nou</span>
                 </a>
-
-                <!-- Mobile Social Icons -->
-                <div class="flex justify-center gap-6 mt-6 pt-4 border-t border-brand-soil/20">
-                    <a href="https://www.facebook.com/share/1JWGLT6xwd/" target="_blank" class="text-brand-purple hover:text-brand-orange transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/campjakkalsfonteintulbagh" target="_blank" class="text-brand-purple hover:text-brand-orange transition-colors">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
             </div>
         </div>
     </nav>
 
     <header class="relative h-screen min-h-[650px] flex items-center justify-center pt-24 bg-gradient-to-br from-brand-dark-purple via-brand-purple to-brand-dark-purple">
-        <!-- Abstract gradient overlay for a slight modern touch -->
         <div class="absolute inset-0 z-0 bg-brand-dark-purple/40"></div>
         
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
-            <h1 class="text-6xl md:text-8xl font-heading text-brand-white mb-6 drop-shadow-xl tracking-wide">Camp Jakkalsfontein</h1>
+        <div class="relative z-10 text-center px-4 w-full max-w-5xl mx-auto mt-10">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading text-brand-white mb-6 drop-shadow-xl tracking-wide leading-tight">Camp Jakkalsfontein</h1>
             
-            <p class="text-2xl md:text-3xl font-body text-brand-soil mb-8 tracking-widest drop-shadow-md">
+            <p class="text-xl sm:text-2xl md:text-3xl font-body text-brand-soil mb-8 tracking-widest drop-shadow-md">
                 <span class="lang-en">Unwinding begins here.</span>
                 <span class="lang-af">Uitspan begin hier.</span>
             </p>
             
-            <p class="text-lg md:text-xl font-ui text-brand-white/90 mb-12 uppercase tracking-widest font-medium">
+            <p class="text-base sm:text-lg md:text-xl font-ui text-brand-white/90 mb-12 uppercase tracking-widest font-medium">
                 <span class="lang-en">Unwind, Relax, Rejuvenate</span>
                 <span class="lang-af">Ontspan, Rus, Herleef</span>
             </p>
             
-            <a href="#accommodations" class="btn btn-secondary text-lg px-10 py-5 shadow-2xl">
+            <a href="#accommodations" class="btn btn-secondary text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 shadow-2xl">
                 <span class="lang-en">Explore The Camp</span>
                 <span class="lang-af">Verken Die Kamp</span>
-                <i data-lucide="chevron-down" class="ml-3 w-6 h-6"></i>
+                <i data-lucide="chevron-down" class="ml-2 sm:ml-3 w-5 h-5 sm:w-6 sm:h-6"></i>
             </a>
         </div>
     </header>
 
-    <section id="accommodations" class="py-24 bg-brand-earth relative">
+    <section id="accommodations" class="py-20 sm:py-24 bg-brand-earth relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-heading text-brand-purple mb-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-purple mb-4">
                     <span class="lang-en">Lodging & Camping</span><span class="lang-af">Verblyf & Kampering</span>
                 </h2>
-                <div class="w-32 h-1 bg-brand-soil mx-auto mb-6"></div>
-                <p class="font-body text-brand-dark-purple text-xl max-w-2xl mx-auto">
+                <div class="w-24 sm:w-32 h-1 bg-brand-soil mx-auto mb-6"></div>
+                <p class="font-body text-brand-dark-purple text-lg sm:text-xl max-w-2xl mx-auto">
                     <span class="lang-en">Choose your perfect escape in the heart of nature.</span>
                     <span class="lang-af">Kies jou perfekte ontsnapping in die hartjie van die natuur.</span>
                 </p>
             </div>
 
             <!-- Accommodations Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
                 
-                <!-- Day Camping (Best Seller) -->
-                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col relative transition-transform hover:-translate-y-1 duration-300">
+                <!-- Day Camping -->
+                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col relative transition-transform hover:-translate-y-1 duration-300 w-full max-w-sm mx-auto md:max-w-none">
                     <div class="absolute top-4 right-4 z-10 bg-brand-orange text-brand-white text-xs font-ui font-bold px-4 py-1.5 rounded-full uppercase shadow-md tracking-wider">
                         <span class="lang-en">Best Seller</span><span class="lang-af">Topverkoper</span>
                     </div>
-                    <div class="gallery-card h-72">
+                    <div class="gallery-card h-64 sm:h-72" onclick="openGallery('Day Camping')">
                         <img src="https://placehold.co/600x400/339900/ffffff?text=Day+Camping" class="w-full h-full object-cover" alt="Day Camping">
                         <div class="gallery-overlay">
                             <i data-lucide="image" class="w-12 h-12 text-brand-white mb-3"></i>
@@ -272,8 +264,8 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="font-heading text-3xl text-brand-purple mb-3">
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow">
+                        <h3 class="font-heading text-2xl sm:text-3xl text-brand-purple mb-3">
                             <span class="lang-en">Day Camping (Visitor)</span><span class="lang-af">Dagkamp (Besoeker)</span>
                         </h3>
                         <p class="font-ui text-brand-dark-purple/70 mb-6 flex-grow leading-relaxed">
@@ -281,8 +273,8 @@
                             <span class="lang-af">Perfek vir 'n vinnige wegbreek. Geniet die buitelug ruimtes en braai areas vir die dag.</span>
                         </p>
                         <div class="flex justify-between items-center mt-auto pt-6 border-t border-brand-soil/30">
-                            <span class="font-ui font-bold text-2xl text-brand-green">R100 <span class="text-sm font-normal text-brand-dark-purple/60">/p</span></span>
-                            <a href="#booking" class="btn btn-primary text-sm px-6">
+                            <span class="font-ui font-bold text-xl sm:text-2xl text-brand-green">R100 <span class="text-xs sm:text-sm font-normal text-brand-dark-purple/60">/p</span></span>
+                            <a href="#booking" class="btn btn-primary text-xs sm:text-sm px-4 sm:px-6">
                                 <span class="lang-en">Book</span><span class="lang-af">Bespreek</span>
                             </a>
                         </div>
@@ -290,8 +282,8 @@
                 </div>
 
                 <!-- Private Room -->
-                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300">
-                    <div class="gallery-card h-72">
+                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300 w-full max-w-sm mx-auto md:max-w-none">
+                    <div class="gallery-card h-64 sm:h-72" onclick="openGallery('Private Room')">
                         <img src="https://placehold.co/600x400/4f2d82/ffffff?text=Private+Room" class="w-full h-full object-cover" alt="Private Room">
                         <div class="gallery-overlay">
                             <i data-lucide="image" class="w-12 h-12 text-brand-white mb-3"></i>
@@ -300,8 +292,8 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="font-heading text-3xl text-brand-purple mb-3">
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow">
+                        <h3 class="font-heading text-2xl sm:text-3xl text-brand-purple mb-3">
                             <span class="lang-en">Private Room</span><span class="lang-af">Privaat Kamer</span>
                         </h3>
                         <p class="font-ui text-brand-dark-purple/70 mb-6 flex-grow leading-relaxed">
@@ -309,8 +301,8 @@
                             <span class="lang-af">Gemaklike privaat kamer. Geskik vir 2 gaste wat deel.</span>
                         </p>
                         <div class="flex justify-between items-center mt-auto pt-6 border-t border-brand-soil/30">
-                            <span class="font-ui font-bold text-2xl text-brand-green">R960 <span class="text-sm font-normal text-brand-dark-purple/60">/night</span></span>
-                            <a href="#booking" class="btn btn-primary text-sm px-6">
+                            <span class="font-ui font-bold text-xl sm:text-2xl text-brand-green">R960 <span class="text-xs sm:text-sm font-normal text-brand-dark-purple/60">/night</span></span>
+                            <a href="#booking" class="btn btn-primary text-xs sm:text-sm px-4 sm:px-6">
                                 <span class="lang-en">Book</span><span class="lang-af">Bespreek</span>
                             </a>
                         </div>
@@ -318,8 +310,8 @@
                 </div>
 
                 <!-- Self-Pitch Camping -->
-                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300">
-                    <div class="gallery-card h-72">
+                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300 w-full max-w-sm mx-auto md:max-w-none">
+                    <div class="gallery-card h-64 sm:h-72" onclick="openGallery('Self-Pitch Camping')">
                         <img src="https://placehold.co/600x400/deb887/2a203e?text=Self-Pitch+Tent" class="w-full h-full object-cover" alt="Self-Pitch">
                         <div class="gallery-overlay">
                             <i data-lucide="image" class="w-12 h-12 text-brand-white mb-3"></i>
@@ -328,8 +320,8 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="font-heading text-3xl text-brand-purple mb-3">
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow">
+                        <h3 class="font-heading text-2xl sm:text-3xl text-brand-purple mb-3">
                             <span class="lang-en">Self-Pitch Camping</span><span class="lang-af">Self-Opslaan Kamp</span>
                         </h3>
                         <p class="font-ui text-brand-dark-purple/70 mb-6 flex-grow leading-relaxed">
@@ -337,8 +329,8 @@
                             <span class="lang-af">Bring jou eie toerusting en kamp onder die pragtige sterrehemel.</span>
                         </p>
                         <div class="flex justify-between items-center mt-auto pt-6 border-t border-brand-soil/30">
-                            <span class="font-ui font-bold text-2xl text-brand-green">R140 <span class="text-sm font-normal text-brand-dark-purple/60">/p</span></span>
-                            <a href="#booking" class="btn btn-primary text-sm px-6">
+                            <span class="font-ui font-bold text-xl sm:text-2xl text-brand-green">R140 <span class="text-xs sm:text-sm font-normal text-brand-dark-purple/60">/p</span></span>
+                            <a href="#booking" class="btn btn-primary text-xs sm:text-sm px-4 sm:px-6">
                                 <span class="lang-en">Book</span><span class="lang-af">Bespreek</span>
                             </a>
                         </div>
@@ -346,8 +338,8 @@
                 </div>
 
                 <!-- Vehicle Camping -->
-                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300">
-                    <div class="gallery-card h-72">
+                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300 w-full max-w-sm mx-auto md:max-w-none">
+                    <div class="gallery-card h-64 sm:h-72" onclick="openGallery('Vehicle Camping')">
                         <img src="https://placehold.co/600x400/2a203e/ffffff?text=Vehicle+Camping" class="w-full h-full object-cover" alt="Vehicle Camping">
                         <div class="gallery-overlay">
                             <i data-lucide="image" class="w-12 h-12 text-brand-white mb-3"></i>
@@ -356,8 +348,8 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="font-heading text-3xl text-brand-purple mb-3">
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow">
+                        <h3 class="font-heading text-2xl sm:text-3xl text-brand-purple mb-3">
                             <span class="lang-en">Vehicle Camping</span><span class="lang-af">Voertuig Kamp</span>
                         </h3>
                         <p class="font-ui text-brand-dark-purple/70 mb-6 flex-grow leading-relaxed">
@@ -365,8 +357,8 @@
                             <span class="lang-af">Toegewese spasie vir jou Mobi Lodge of Karavaan. Geskik vir 2 Mense.</span>
                         </p>
                         <div class="flex justify-between items-center mt-auto pt-6 border-t border-brand-soil/30">
-                            <span class="font-ui font-bold text-2xl text-brand-green">R500 <span class="text-sm font-normal text-brand-dark-purple/60">/night</span></span>
-                            <a href="#booking" class="btn btn-primary text-sm px-6">
+                            <span class="font-ui font-bold text-xl sm:text-2xl text-brand-green">R500 <span class="text-xs sm:text-sm font-normal text-brand-dark-purple/60">/night</span></span>
+                            <a href="#booking" class="btn btn-primary text-xs sm:text-sm px-4 sm:px-6">
                                 <span class="lang-en">Book</span><span class="lang-af">Bespreek</span>
                             </a>
                         </div>
@@ -374,8 +366,8 @@
                 </div>
 
                 <!-- Cottage -->
-                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300">
-                    <div class="gallery-card h-72">
+                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300 w-full max-w-sm mx-auto md:max-w-none">
+                    <div class="gallery-card h-64 sm:h-72" onclick="openGallery('Cottage')">
                         <img src="https://placehold.co/600x400/ff8c42/ffffff?text=Cottage" class="w-full h-full object-cover" alt="Cottage">
                         <div class="gallery-overlay">
                             <i data-lucide="image" class="w-12 h-12 text-brand-white mb-3"></i>
@@ -384,8 +376,8 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="font-heading text-3xl text-brand-purple mb-3">
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow">
+                        <h3 class="font-heading text-2xl sm:text-3xl text-brand-purple mb-3">
                             <span class="lang-en">Cottage</span><span class="lang-af">Kothuis</span>
                         </h3>
                         <p class="font-ui text-brand-dark-purple/70 mb-6 flex-grow leading-relaxed">
@@ -393,8 +385,8 @@
                             <span class="lang-af">Ruim rustieke kothuis perfek vir familie wegbreek. Maksimum 10 Gaste.</span>
                         </p>
                         <div class="flex justify-between items-center mt-auto pt-6 border-t border-brand-soil/30">
-                            <span class="font-ui font-bold text-2xl text-brand-green">R2,880 <span class="text-sm font-normal text-brand-dark-purple/60">/night</span></span>
-                            <a href="#booking" class="btn btn-primary text-sm px-6">
+                            <span class="font-ui font-bold text-xl sm:text-2xl text-brand-green">R2,880 <span class="text-xs sm:text-sm font-normal text-brand-dark-purple/60">/night</span></span>
+                            <a href="#booking" class="btn btn-primary text-xs sm:text-sm px-4 sm:px-6">
                                 <span class="lang-en">Book</span><span class="lang-af">Bespreek</span>
                             </a>
                         </div>
@@ -402,8 +394,8 @@
                 </div>
 
                 <!-- Entire Barnhouse -->
-                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300">
-                    <div class="gallery-card h-72">
+                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300 w-full max-w-sm mx-auto md:max-w-none">
+                    <div class="gallery-card h-64 sm:h-72" onclick="openGallery('Entire Barnhouse')">
                         <img src="https://placehold.co/600x400/4f2d82/ffffff?text=Barnhouse" class="w-full h-full object-cover" alt="Barnhouse">
                         <div class="gallery-overlay">
                             <i data-lucide="image" class="w-12 h-12 text-brand-white mb-3"></i>
@@ -412,8 +404,8 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow">
-                        <h3 class="font-heading text-3xl text-brand-purple mb-3">
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow">
+                        <h3 class="font-heading text-2xl sm:text-3xl text-brand-purple mb-3">
                             <span class="lang-en">Entire Barnhouse</span><span class="lang-af">Hele Barnhouse</span>
                         </h3>
                         <p class="font-ui text-brand-dark-purple/70 mb-6 flex-grow leading-relaxed">
@@ -421,8 +413,8 @@
                             <span class="lang-af">Massiewe, gemaklike spasie ontwerp vir groot groepe. Maksimum 18 Gaste.</span>
                         </p>
                         <div class="flex justify-between items-center mt-auto pt-6 border-t border-brand-soil/30">
-                            <span class="font-ui font-bold text-2xl text-brand-green">R6,075 <span class="text-sm font-normal text-brand-dark-purple/60">/night</span></span>
-                            <a href="#booking" class="btn btn-primary text-sm px-6">
+                            <span class="font-ui font-bold text-xl sm:text-2xl text-brand-green">R6,075 <span class="text-xs sm:text-sm font-normal text-brand-dark-purple/60">/night</span></span>
+                            <a href="#booking" class="btn btn-primary text-xs sm:text-sm px-4 sm:px-6">
                                 <span class="lang-en">Book</span><span class="lang-af">Bespreek</span>
                             </a>
                         </div>
@@ -430,8 +422,8 @@
                 </div>
                 
                 <!-- Indoor Day Camp -->
-                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300">
-                    <div class="gallery-card h-72">
+                <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col transition-transform hover:-translate-y-1 duration-300 w-full max-w-sm mx-auto md:max-w-none">
+                    <div class="gallery-card h-64 sm:h-72" onclick="openGallery('Indoor Day Camp')">
                         <img src="https://placehold.co/600x400/339900/ffffff?text=Indoor+Day+Camp" class="w-full h-full object-cover" alt="Indoor Day Camp">
                         <div class="gallery-overlay">
                             <i data-lucide="image" class="w-12 h-12 text-brand-white mb-3"></i>
@@ -440,8 +432,8 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow relative">
-                        <h3 class="font-heading text-3xl text-brand-purple mb-3">
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow relative">
+                        <h3 class="font-heading text-2xl sm:text-3xl text-brand-purple mb-3">
                             <span class="lang-en">Indoor Day Camp</span><span class="lang-af">Binnenshuise Dagkamp</span>
                         </h3>
                         <p class="font-ui text-brand-dark-purple/70 mb-6 flex-grow leading-relaxed">
@@ -449,17 +441,17 @@
                             <span class="lang-af">Geleë in die Barnhouse. Maks 25 Gaste. Slegs beskikbaar Sondag (vanaf 12PM) tot Donderdag.</span>
                         </p>
                         <div class="flex justify-between items-center mt-auto pt-6 border-t border-brand-soil/30">
-                            <span class="font-ui font-bold text-2xl text-brand-green">R2,500 <span class="text-sm font-normal text-brand-dark-purple/60">/day</span></span>
-                            <a href="#booking" class="btn btn-primary text-sm px-6">
+                            <span class="font-ui font-bold text-xl sm:text-2xl text-brand-green">R2,500 <span class="text-xs sm:text-sm font-normal text-brand-dark-purple/60">/day</span></span>
+                            <a href="#booking" class="btn btn-primary text-xs sm:text-sm px-4 sm:px-6">
                                 <span class="lang-en">Book</span><span class="lang-af">Bespreek</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                 <!-- Entire Farm -->
-                 <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col lg:col-span-2 transition-transform hover:-translate-y-1 duration-300">
-                    <div class="gallery-card h-72 lg:h-80">
+                 <!-- Entire Farm & Campsite -->
+                 <div class="bg-brand-white rounded-3xl shadow-lg overflow-hidden border border-brand-soil/40 flex flex-col lg:col-span-2 transition-transform hover:-translate-y-1 duration-300 w-full max-w-sm mx-auto md:max-w-none lg:max-w-full">
+                    <div class="gallery-card h-64 sm:h-72 lg:h-80" onclick="openGallery('Entire Farm')">
                         <img src="https://placehold.co/1200x500/2a203e/ffffff?text=Entire+Farm+&+Campsite" class="w-full h-full object-cover" alt="Entire Farm">
                         <div class="gallery-overlay">
                             <i data-lucide="image" class="w-12 h-12 text-brand-white mb-3"></i>
@@ -468,19 +460,19 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow md:flex-row md:items-center md:justify-between">
+                    <div class="p-6 sm:p-8 flex flex-col flex-grow md:flex-row md:items-center md:justify-between">
                         <div class="md:pr-8">
                             <h3 class="font-heading text-3xl md:text-4xl text-brand-purple mb-3">
                                 <span class="lang-en">Entire Farm & Campsite</span><span class="lang-af">Hele Plaas & Kampterrein</span>
                             </h3>
-                            <p class="font-ui text-brand-dark-purple/70 mb-6 md:mb-0 text-lg leading-relaxed">
-                                <span class="lang-en">Exclusive use of the entire property for massive events or weddings. Maximum 250 Guests.</span>
-                                <span class="lang-af">Eksklusiewe gebruik van die hele eiendom vir massiewe geleenthede. Maksimum 250 Gaste.</span>
+                            <p class="font-ui text-brand-dark-purple/70 mb-6 md:mb-0 text-base sm:text-lg leading-relaxed">
+                                <span class="lang-en">Entire Farm: Max 30 people (exceeding to be discussed). Entire Farm & Campsite: Max 250 people (price to be discussed).</span>
+                                <span class="lang-af">Hele Plaas: Maks 30 mense (meer om te bespreek). Hele Plaas & Kampterrein: Maks 250 mense (prys om te bespreek).</span>
                             </p>
                         </div>
                         <div class="flex flex-col items-start md:items-end gap-4 mt-auto pt-6 md:pt-0 border-t md:border-t-0 border-brand-soil/30 whitespace-nowrap">
-                            <span class="font-ui font-bold text-3xl text-brand-green">R9,000 <span class="text-base font-normal text-brand-dark-purple/60">/night</span></span>
-                            <a href="#booking" class="btn btn-primary text-lg px-8 py-3 w-full md:w-auto">
+                            <span class="font-ui font-bold text-2xl sm:text-3xl text-brand-green">R9,000 <span class="text-sm sm:text-base font-normal text-brand-dark-purple/60">/night</span></span>
+                            <a href="#booking" class="btn btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 w-full md:w-auto">
                                 <span class="lang-en">Book Now</span><span class="lang-af">Bespreek Nou</span>
                             </a>
                         </div>
@@ -491,97 +483,97 @@
         </div>
     </section>
 
-    <section id="amenities" class="py-24 bg-brand-white border-t border-brand-soil/30">
+    <section id="amenities" class="py-20 sm:py-24 bg-brand-white border-t border-brand-soil/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-heading text-brand-purple mb-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-purple mb-4">
                     <span class="lang-en">Camp Amenities</span><span class="lang-af">Kamp Geriewe</span>
                 </h2>
-                <div class="w-32 h-1 bg-brand-soil mx-auto mb-6"></div>
-                <p class="font-body text-brand-dark-purple text-xl">
+                <div class="w-24 sm:w-32 h-1 bg-brand-soil mx-auto mb-6"></div>
+                <p class="font-body text-brand-dark-purple text-lg sm:text-xl">
                     <span class="lang-en">Discover everything our farm has to offer.</span>
                     <span class="lang-af">Ontdek alles wat ons plaas om te bied het.</span>
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <div class="bg-brand-earth rounded-2xl p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-16 h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                        <i data-lucide="waves" class="w-8 h-8 text-brand-green"></i>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+                <div class="bg-brand-earth rounded-2xl p-6 sm:p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col items-center justify-center" onclick="openGallery('Swimming Pool')">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="waves" class="w-6 h-6 sm:w-8 sm:h-8 text-brand-green"></i>
                     </div>
-                    <h4 class="font-ui font-bold text-brand-dark-purple text-sm uppercase tracking-wide">
+                    <h4 class="font-ui font-bold text-brand-dark-purple text-xs sm:text-sm uppercase tracking-wide">
                         <span class="lang-en">Swimming Pool</span><span class="lang-af">Swembad</span>
                     </h4>
                 </div>
                 
-                <div class="bg-brand-earth rounded-2xl p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-16 h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                        <i data-lucide="flame" class="w-8 h-8 text-brand-orange"></i>
+                <div class="bg-brand-earth rounded-2xl p-6 sm:p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col items-center justify-center" onclick="openGallery('Braai Area')">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="flame" class="w-6 h-6 sm:w-8 sm:h-8 text-brand-orange"></i>
                     </div>
-                    <h4 class="font-ui font-bold text-brand-dark-purple text-sm uppercase tracking-wide">
+                    <h4 class="font-ui font-bold text-brand-dark-purple text-xs sm:text-sm uppercase tracking-wide">
                         <span class="lang-en">Braai Area</span><span class="lang-af">Braai Area</span>
                     </h4>
                 </div>
 
-                <div class="bg-brand-earth rounded-2xl p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-16 h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                        <i data-lucide="bath" class="w-8 h-8 text-brand-purple"></i>
+                <div class="bg-brand-earth rounded-2xl p-6 sm:p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col items-center justify-center" onclick="openGallery('Bathrooms')">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="bath" class="w-6 h-6 sm:w-8 sm:h-8 text-brand-purple"></i>
                     </div>
-                    <h4 class="font-ui font-bold text-brand-dark-purple text-sm uppercase tracking-wide">
+                    <h4 class="font-ui font-bold text-brand-dark-purple text-xs sm:text-sm uppercase tracking-wide">
                         <span class="lang-en">Bathrooms</span><span class="lang-af">Badkamers</span>
                     </h4>
                 </div>
 
-                <div class="bg-brand-earth rounded-2xl p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-16 h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                        <i data-lucide="droplets" class="w-8 h-8 text-brand-green"></i>
+                <div class="bg-brand-earth rounded-2xl p-6 sm:p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col items-center justify-center" onclick="openGallery('Showers')">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="droplets" class="w-6 h-6 sm:w-8 sm:h-8 text-brand-green"></i>
                     </div>
-                    <h4 class="font-ui font-bold text-brand-dark-purple text-sm uppercase tracking-wide">
+                    <h4 class="font-ui font-bold text-brand-dark-purple text-xs sm:text-sm uppercase tracking-wide">
                         <span class="lang-en">Showers</span><span class="lang-af">Storte</span>
                     </h4>
                 </div>
 
-                <div class="bg-brand-earth rounded-2xl p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-16 h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                        <i data-lucide="music" class="w-8 h-8 text-brand-purple"></i>
+                <div class="bg-brand-earth rounded-2xl p-6 sm:p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col items-center justify-center" onclick="openGallery('Entertainment')">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="music" class="w-6 h-6 sm:w-8 sm:h-8 text-brand-purple"></i>
                     </div>
-                    <h4 class="font-ui font-bold text-brand-dark-purple text-sm uppercase tracking-wide">
+                    <h4 class="font-ui font-bold text-brand-dark-purple text-xs sm:text-sm uppercase tracking-wide">
                         <span class="lang-en">Entertainment</span><span class="lang-af">Vermaak</span>
                     </h4>
                 </div>
 
-                <div class="bg-brand-earth rounded-2xl p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-16 h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                        <i data-lucide="tent-tree" class="w-8 h-8 text-brand-green"></i>
+                <div class="bg-brand-earth rounded-2xl p-6 sm:p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col items-center justify-center" onclick="openGallery('Camping Space')">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="tent-tree" class="w-6 h-6 sm:w-8 sm:h-8 text-brand-green"></i>
                     </div>
-                    <h4 class="font-ui font-bold text-brand-dark-purple text-sm uppercase tracking-wide">
+                    <h4 class="font-ui font-bold text-brand-dark-purple text-xs sm:text-sm uppercase tracking-wide">
                         <span class="lang-en">Camping Space</span><span class="lang-af">Kamp Spasie</span>
                     </h4>
                 </div>
 
-                <div class="bg-brand-earth rounded-2xl p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-16 h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                        <i data-lucide="utensils-crossed" class="w-8 h-8 text-brand-orange"></i>
+                <div class="bg-brand-earth rounded-2xl p-6 sm:p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col items-center justify-center" onclick="openGallery('Self Catering')">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="utensils-crossed" class="w-6 h-6 sm:w-8 sm:h-8 text-brand-orange"></i>
                     </div>
-                    <h4 class="font-ui font-bold text-brand-dark-purple text-sm uppercase tracking-wide">
+                    <h4 class="font-ui font-bold text-brand-dark-purple text-xs sm:text-sm uppercase tracking-wide">
                         <span class="lang-en">Self Catering</span><span class="lang-af">Selfsorg</span>
                     </h4>
                 </div>
 
-                <div class="bg-brand-earth rounded-2xl p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group">
-                    <div class="w-16 h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                        <i data-lucide="footprints" class="w-8 h-8 text-brand-green"></i>
+                <div class="bg-brand-earth rounded-2xl p-6 sm:p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col items-center justify-center" onclick="openGallery('Hiking Trails')">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="footprints" class="w-6 h-6 sm:w-8 sm:h-8 text-brand-green"></i>
                     </div>
-                    <h4 class="font-ui font-bold text-brand-dark-purple text-sm uppercase tracking-wide">
+                    <h4 class="font-ui font-bold text-brand-dark-purple text-xs sm:text-sm uppercase tracking-wide">
                         <span class="lang-en">Hiking Trails</span><span class="lang-af">Staproetes</span>
                     </h4>
                 </div>
 
-                <div class="bg-brand-earth rounded-2xl p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group lg:col-span-2">
-                    <div class="w-16 h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                        <i data-lucide="car" class="w-8 h-8 text-brand-purple"></i>
+                <div class="bg-brand-earth rounded-2xl p-6 sm:p-8 text-center border border-brand-soil/40 shadow-sm hover:shadow-md transition-shadow group lg:col-span-2 cursor-pointer flex flex-col items-center justify-center" onclick="openGallery('Safe Parking')">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-brand-white rounded-full flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                        <i data-lucide="car" class="w-6 h-6 sm:w-8 sm:h-8 text-brand-purple"></i>
                     </div>
-                    <h4 class="font-ui font-bold text-brand-dark-purple text-sm uppercase tracking-wide">
+                    <h4 class="font-ui font-bold text-brand-dark-purple text-xs sm:text-sm uppercase tracking-wide">
                         <span class="lang-en">Safe Parking</span><span class="lang-af">Veilige Parkering</span>
                     </h4>
                 </div>
@@ -589,87 +581,194 @@
         </div>
     </section>
 
-    <section id="availability" class="py-24 bg-brand-earth border-t border-brand-soil/30">
+    <section id="availability" class="py-20 sm:py-24 bg-brand-earth border-t border-brand-soil/30">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-heading text-brand-purple mb-4">
+            <div class="text-center mb-10 sm:mb-12">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-purple mb-4">
                     <span class="lang-en">Check Availability</span><span class="lang-af">Kyk Beskikbaarheid</span>
                 </h2>
-                <div class="w-32 h-1 bg-brand-soil mx-auto mb-6"></div>
-                <p class="font-body text-brand-dark-purple text-xl mb-8">
+                <div class="w-24 sm:w-32 h-1 bg-brand-soil mx-auto mb-6"></div>
+                <p class="font-body text-brand-dark-purple text-lg sm:text-xl mb-6 sm:mb-8">
                     <span class="lang-en">Find the perfect date for your getaway before submitting a request.</span>
                     <span class="lang-af">Vind die perfekte datum vir jou wegbreek voordat jy 'n versoek indien.</span>
                 </p>
             </div>
             
-            <div class="shadow-2xl bg-brand-white p-2 md:p-6 rounded-[2rem] border-4 border-brand-soil">
-                <div class="w-full h-[600px] md:h-[700px] rounded-xl overflow-hidden">
+            <div class="shadow-2xl bg-brand-white p-2 md:p-6 rounded-[1.5rem] sm:rounded-[2rem] border-2 sm:border-4 border-brand-soil w-full">
+                <div class="w-full h-[500px] md:h-[700px] rounded-xl overflow-hidden">
                     <iframe src="https://calendar.google.com/calendar/embed?src=campjakkalsfonteintulbagh%40gmail.com&ctz=Africa%2FJohannesburg" style="border: 0" width="100%" height="100%" frameborder="0" scrolling="yes"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="booking" class="py-24 bg-brand-white border-t border-brand-soil/30">
+    <!-- Camp Rules & Terms Section -->
+    <section id="rules" class="py-20 sm:py-24 bg-brand-white border-t border-brand-soil/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-purple mb-4">
+                    <span class="lang-en">Camp Rules & Terms</span><span class="lang-af">Kampreëls & Bepalings</span>
+                </h2>
+                <div class="w-24 sm:w-32 h-1 bg-brand-soil mx-auto mb-6"></div>
+                <p class="font-body text-brand-dark-purple text-lg sm:text-xl max-w-2xl mx-auto">
+                    <span class="lang-en">Camp Jakkalsfontein is a peaceful farm retreat in the beautiful Tulbagh Valley. To ensure an enjoyable experience for everyone, please read the following:</span>
+                    <span class="lang-af">Camp Jakkalsfontein is 'n rustige plaaswegbreek in die pragtige Tulbagh-vallei. Om 'n aangename ervaring vir almal te verseker, lees asseblief die volgende:</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-ui">
+                <!-- Bookings & Deposits -->
+                <div class="bg-brand-earth p-8 rounded-3xl border border-brand-soil/40 shadow-sm flex flex-col">
+                    <div class="w-12 h-12 bg-brand-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="calendar-check" class="w-6 h-6 text-brand-purple"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-purple mb-4">
+                        <span class="lang-en">Bookings & Deposits</span><span class="lang-af">Besprekings & Deposito's</span>
+                    </h3>
+                    <ul class="space-y-3 text-brand-dark-purple/80 text-sm sm:text-base leading-relaxed">
+                        <li>• <span class="lang-en">A deposit is required to secure every booking.</span><span class="lang-af">'n Deposito word vereis om elke bespreking te beveilig.</span></li>
+                        <li>• <span class="lang-en">Your booking is only confirmed once the required deposit has been received.</span><span class="lang-af">Jou bespreking is slegs bevestig sodra die vereiste deposito ontvang is.</span></li>
+                        <li>• <span class="lang-en">Deposit amounts depend on group size, peak/off-peak season, and exclusive use requirements.</span><span class="lang-af">Deponering bedrae hang af van groepgrootte, piek/nie-piek seisoen en eksklusiewe gebruik.</span></li>
+                        <li>• <strong class="text-brand-dark-purple"><span class="lang-en">Entire Farm booking:</span><span class="lang-af">Hele Plaas bespreking:</span></strong> <span class="lang-en">Maximum 30 people (exceeding to be discussed). Entire Farm & Campsite: Maximum 250 people (price to be discussed).</span><span class="lang-af">Maksimum 30 mense (meer om te bespreek). Hele Plaas & Kampterrein: Maksimum 250 mense (prys om te bespreek).</span></li>
+                    </ul>
+                </div>
+
+                <!-- Payments -->
+                <div class="bg-brand-earth p-8 rounded-3xl border border-brand-soil/40 shadow-sm flex flex-col">
+                    <div class="w-12 h-12 bg-brand-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="credit-card" class="w-6 h-6 text-brand-green"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-purple mb-4">
+                        <span class="lang-en">Payments</span><span class="lang-af">Betalings</span>
+                    </h3>
+                    <ul class="space-y-3 text-brand-dark-purple/80 text-sm sm:text-base leading-relaxed">
+                        <li>• <span class="lang-en">The remaining balance must be paid before arrival.</span><span class="lang-af">Die oorblywende balans moet voor aankoms betaal word.</span></li>
+                        <li>• <span class="lang-en">Day visits and events require full payment in advance.</span><span class="lang-af">Dagbesoeke en geleenthede vereis volle betaling vooraf.</span></li>
+                        <li>• <span class="lang-en">Unpaid bookings may be cancelled without prior notice.</span><span class="lang-af">Onbetaalde besprekings kan sonder vooraf kennisgewing gekanselleer word.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Swimming Pools -->
+                <div class="bg-brand-earth p-8 rounded-3xl border border-brand-soil/40 shadow-sm flex flex-col">
+                    <div class="w-12 h-12 bg-brand-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="waves" class="w-6 h-6 text-brand-orange"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-purple mb-4">
+                        <span class="lang-en">Swimming Pools</span><span class="lang-af">Swembaddens</span>
+                    </h3>
+                    <ul class="space-y-3 text-brand-dark-purple/80 text-sm sm:text-base leading-relaxed">
+                        <li>• <span class="lang-en">Swimming pools are shared facilities unless exclusive use has been arranged.</span><span class="lang-af">Swembaddens is gedeelde geriewe tensy eksklusiewe gebruik gereël is.</span></li>
+                        <li>• <span class="lang-en">Exclusive use is subject to availability, may incur an additional fee, and is granted at management's discretion.</span><span class="lang-af">Eksklusiewe gebruik is onderhewig aan beskikbaarheid, kan ekstra fooi hef, en word toegestaan na goeddunke van bestuur.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Cancellations & Changes -->
+                <div class="bg-brand-earth p-8 rounded-3xl border border-brand-soil/40 shadow-sm flex flex-col">
+                    <div class="w-12 h-12 bg-brand-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="refresh-cw" class="w-6 h-6 text-brand-purple"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-purple mb-4">
+                        <span class="lang-en">Cancellations & Changes</span><span class="lang-af">Kansellasies & Veranderinge</span>
+                    </h3>
+                    <ul class="space-y-3 text-brand-dark-purple/80 text-sm sm:text-base leading-relaxed">
+                        <li>• <span class="lang-en">Deposits are non-refundable.</span><span class="lang-af">Deposito's is nie terugbetaalbaar nie.</span></li>
+                        <li>• <span class="lang-en">Date changes are subject to availability.</span><span class="lang-af">Datumveranderings is onderhewig aan beskikbaarheid.</span></li>
+                        <li>• <span class="lang-en">All cancellations must be submitted in writing.</span><span class="lang-af">Alle kansellasies moet skriftelik ingedien word.</span></li>
+                        <li>• <span class="lang-en">If we cancel your booking, all payments will either be refunded or transferred by mutual agreement.</span><span class="lang-af">Indien ons jou bespreking kanselleer, sal alle betalings terugbetaal of oorgedra word.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Respecting the Farm -->
+                <div class="bg-brand-earth p-8 rounded-3xl border border-brand-soil/40 shadow-sm flex flex-col md:col-span-2">
+                    <div class="w-12 h-12 bg-brand-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="trees" class="w-6 h-6 text-brand-green"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-purple mb-4">
+                        <span class="lang-en">Respecting the Farm</span><span class="lang-af">Respek vir die Plaas</span>
+                    </h3>
+                    <ul class="space-y-3 text-brand-dark-purple/80 text-sm sm:text-base leading-relaxed">
+                        <li>• <span class="lang-en">Camp Jakkalsfontein is a peaceful shared working farm. Please respect fellow guests, staff, animals, and nature.</span><span class="lang-af">Camp Jakkalsfontein is 'n rustige gedeelde werkende plaas. Respekteer asseblief mede-gaste, personeel, diere en die natuur.</span></li>
+                        <li>• <span class="lang-en">Guests use all facilities entirely at their own risk. Quiet hours are from 10:00 PM to 7:00 AM.</span><span class="lang-af">Gaste gebruik alle geriewe heeltemal op eie risiko. Stil tye is van 22:00 tot 07:00.</span></li>
+                    </ul>
+                    <div class="mt-6 pt-4 border-t border-brand-soil/30 font-semibold text-brand-purple text-sm">
+                        <span class="lang-en">✔️ Agreement: By paying a deposit or visiting Camp Jakkalsfontein, you acknowledge that you have read and accepted these terms.</span>
+                        <span class="lang-af">✔️ Ooreenkoms: Deur 'n deposito te betaal of Camp Jakkalsfontein te besoek, erken jy dat jy hierdie bepalings gelees en aanvaar het.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 sm:py-24 bg-brand-white border-t border-brand-soil/30">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-brand-earth p-8 md:p-14 rounded-[2.5rem] shadow-2xl border border-brand-soil relative overflow-hidden">
+            <div class="bg-brand-earth p-6 sm:p-10 md:p-14 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl border border-brand-soil relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand-soil/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
                 <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-purple/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
 
-                <div class="relative z-10">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl md:text-5xl font-heading text-brand-purple mb-4">
+                <div class="relative z-10 w-full">
+                    <div class="text-center mb-10 sm:mb-12">
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-purple mb-4">
                             <span class="lang-en">Make a Reservation</span><span class="lang-af">Maak 'n Bespreking</span>
                         </h2>
-                        <p class="font-ui text-brand-dark-purple/80 text-lg">
+                        <p class="font-ui text-brand-dark-purple/80 text-base sm:text-lg">
                             <span class="lang-en">Fill out the form below. We will calculate your deposit and contact you with payment details.</span>
                             <span class="lang-af">Voltooi die vorm hieronder. Ons sal jou deposito bereken en kontak met betalingsbesonderhede.</span>
                         </p>
                     </div>
 
-                    <form id="booking-form" action="#" method="POST" class="space-y-8 font-ui">
+                    <form id="booking-form" action="#" method="POST" class="space-y-6 sm:space-y-8 font-ui">
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             <div>
                                 <label class="block text-sm font-bold text-brand-dark-purple mb-2">
                                     <span class="lang-en">Full Name *</span><span class="lang-af">Volle Naam *</span>
                                 </label>
-                                <input type="text" required class="w-full px-5 py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all" placeholder="John Doe">
+                                <input type="text" required class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all" placeholder="John Doe">
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-brand-dark-purple mb-2">
                                     <span class="lang-en">Email Address *</span><span class="lang-af">E-posadres *</span>
                                 </label>
-                                <input type="email" required class="w-full px-5 py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all" placeholder="john@example.com">
+                                <input type="email" required class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all" placeholder="john@example.com">
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                             <div>
                                 <label class="block text-sm font-bold text-brand-dark-purple mb-2">
                                     <span class="lang-en">Check-in Date *</span><span class="lang-af">Inklok Datum *</span>
                                 </label>
-                                <input type="date" required class="w-full px-5 py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all">
+                                <input type="date" required class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all">
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-brand-dark-purple mb-2">
                                     <span class="lang-en">Check-out Date *</span><span class="lang-af">Uitklok Datum *</span>
                                 </label>
-                                <input type="date" required class="w-full px-5 py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all">
+                                <input type="date" required class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all">
                             </div>
                             <div>
                                 <label class="block text-sm font-bold text-brand-dark-purple mb-2">
                                     <span class="lang-en">Total Guests *</span><span class="lang-af">Totale Gaste *</span>
                                 </label>
-                                <input type="number" min="1" required class="w-full px-5 py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all" placeholder="2">
+                                <input type="number" min="1" required class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all" placeholder="2">
                             </div>
+                        </div>
+
+                        <!-- Number of Guests Notice Box -->
+                        <div class="p-4 bg-brand-orange/10 border border-brand-orange/30 rounded-xl text-brand-dark-purple text-xs sm:text-sm flex items-start space-x-3">
+                            <span class="text-base shrink-0">🧍‍♀️👭</span>
+                            <p class="leading-relaxed">
+                                <span class="lang-en"><strong>Number of Guests:</strong> Please note that Camp Jakkalsfontein reserves the right to charge additional fees for extra guests who were not included in the original booking.</span>
+                                <span class="lang-af"><strong>Aantal Gaste:</strong> Let asseblief daarop dat Camp Jakkalsfontein die reg behou om bykomende fooie te hef vir ekstra gaste wat nie by die oorspronklike bespreking ingesluit was nie.</span>
+                            </p>
                         </div>
 
                         <div>
                             <label class="block text-sm font-bold text-brand-dark-purple mb-2">
                                 <span class="lang-en">Select Accommodation *</span><span class="lang-af">Kies Akkommodasie *</span>
                             </label>
-                            <select required class="w-full px-5 py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all">
+                            <select required class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl border border-brand-soil/60 focus:ring-2 focus:ring-brand-purple focus:border-brand-purple outline-none bg-white shadow-sm transition-all text-sm sm:text-base">
                                 <option value="" disabled selected class="lang-en">Choose an option...</option>
                                 <option value="" disabled selected class="lang-af hidden">Kies 'n opsie...</option>
                                 <option value="Day Camping">Day Camping (Visitor) - R100 pp</option>
@@ -679,7 +778,7 @@
                                 <option value="Cottage">Cottage (Max 10) - R2,880</option>
                                 <option value="Entire Barnhouse">Entire Barnhouse (Max 18) - R6,075</option>
                                 <option value="Indoor Day Camp">Indoor Day Camp (Barnhouse) - R2,500</option>
-                                <option value="Entire Farm">Entire Farm & Campsite - R9,000</option>
+                                <option value="Entire Farm">Entire Farm (Max 30) & Campsite (Max 250) - R9,000</option>
                             </select>
                         </div>
 
@@ -687,41 +786,41 @@
                             <label class="block text-sm font-bold text-brand-dark-purple mb-3">
                                 <span class="lang-en">Extras & Add-ons</span><span class="lang-af">Ekstras & Byvoegings</span>
                             </label>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-brand-white p-6 rounded-xl border border-brand-soil/40 shadow-inner">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 bg-brand-white p-4 sm:p-6 rounded-xl border border-brand-soil/40 shadow-inner">
                                 <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-brand-earth rounded transition">
                                     <input type="checkbox" class="w-5 h-5 rounded border-brand-soil text-brand-purple focus:ring-brand-purple">
-                                    <span class="text-brand-dark-purple font-medium">Firewood - R100</span>
+                                    <span class="text-brand-dark-purple font-medium text-sm sm:text-base">Firewood - R100</span>
                                 </label>
                                 <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-brand-earth rounded transition">
                                     <input type="checkbox" class="w-5 h-5 rounded border-brand-soil text-brand-purple focus:ring-brand-purple">
-                                    <span class="text-brand-dark-purple font-medium">Babysitting - R75 / hr</span>
+                                    <span class="text-brand-dark-purple font-medium text-sm sm:text-base">Babysitting - R75 / hr</span>
                                 </label>
                                 <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-brand-earth rounded transition">
                                     <input type="checkbox" class="w-5 h-5 rounded border-brand-soil text-brand-purple focus:ring-brand-purple">
-                                    <span class="text-brand-dark-purple font-medium">Tour Guide - R100 / hr</span>
+                                    <span class="text-brand-dark-purple font-medium text-sm sm:text-base">Tour Guide - R100 / hr</span>
                                 </label>
                                 <label class="flex items-center space-x-3 cursor-pointer p-2 hover:bg-brand-earth rounded transition">
                                     <input type="checkbox" class="w-5 h-5 rounded border-brand-soil text-brand-purple focus:ring-brand-purple">
-                                    <span class="text-brand-dark-purple font-medium">Cleaning Fee - R350</span>
+                                    <span class="text-brand-dark-purple font-medium text-sm sm:text-base">Cleaning Fee - R350</span>
                                 </label>
                             </div>
                         </div>
 
-                        <div class="pt-6 border-t border-brand-soil/40">
-                            <label class="flex items-start space-x-4 cursor-pointer p-4 bg-brand-orange/5 border border-brand-orange/20 rounded-xl">
-                                <input id="terms-checkbox" type="checkbox" required class="mt-1 w-6 h-6 rounded border-brand-soil text-brand-purple focus:ring-brand-purple cursor-pointer">
-                                <span class="text-brand-dark-purple text-sm leading-relaxed">
+                        <div class="pt-4 sm:pt-6 border-t border-brand-soil/40">
+                            <label class="flex items-start space-x-3 sm:space-x-4 cursor-pointer p-3 sm:p-4 bg-brand-orange/5 border border-brand-orange/20 rounded-xl">
+                                <input id="terms-checkbox" type="checkbox" required class="mt-0.5 sm:mt-1 w-5 h-5 sm:w-6 sm:h-6 shrink-0 rounded border-brand-soil text-brand-purple focus:ring-brand-purple cursor-pointer">
+                                <span class="text-brand-dark-purple text-xs sm:text-sm leading-relaxed">
                                     <strong class="text-brand-orange block mb-1">
                                         <span class="lang-en">Mandatory Agreement</span><span class="lang-af">Verpligte Ooreenkoms</span>
                                     </strong>
-                                    <span class="lang-en">By checking this box and submitting this booking, I acknowledge that I have read and accepted the Camp Rules, Cancellation Policy, and Terms & Conditions.</span>
-                                    <span class="lang-af">Deur hierdie blokkie te merk en bespreking in te dien, erken ek dat ek die Kampreëls, Kansellasiebeleid en Bepalings aanvaar.</span>
+                                    <span class="lang-en">By checking this box and submitting this booking, I acknowledge that I have read and accepted the <a href="#rules" class="underline font-bold">Camp Rules and Terms & Conditions</a>.</span>
+                                    <span class="lang-af">Deur hierdie blokkie te merk en bespreking in te dien, erken ek dat ek die <a href="#rules" class="underline font-bold">Kampreëls en Bepalings</a> gelees en aanvaar het.</span>
                                 </span>
                             </label>
                         </div>
 
                         <div class="pt-4 text-center">
-                            <button type="submit" id="submit-btn" class="btn btn-primary w-full md:w-auto md:px-20 py-5 text-xl shadow-xl opacity-50 cursor-not-allowed" disabled>
+                            <button type="submit" id="submit-btn" class="btn btn-primary w-full md:w-auto px-6 sm:px-20 py-4 sm:py-5 text-lg sm:text-xl shadow-xl opacity-50 cursor-not-allowed" disabled>
                                 <span class="lang-en">Submit Booking Request</span><span class="lang-af">Dien Versoek In</span>
                             </button>
                         </div>
@@ -731,142 +830,186 @@
         </div>
     </section>
 
-    <section id="faq" class="py-24 bg-brand-earth border-t border-brand-soil/30">
+    <!-- Expanded FAQ Section -->
+    <section id="faq" class="py-20 sm:py-24 bg-brand-earth border-t border-brand-soil/30">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-heading text-brand-purple mb-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-purple mb-4">
                     <span class="lang-en">Frequently Asked Questions</span><span class="lang-af">Gereelde Vrae</span>
                 </h2>
-                <div class="w-32 h-1 bg-brand-soil mx-auto mb-6"></div>
+                <div class="w-24 sm:w-32 h-1 bg-brand-soil mx-auto mb-6"></div>
             </div>
 
             <div class="space-y-4 font-ui">
                 <details class="bg-brand-white border border-brand-soil/50 rounded-2xl overflow-hidden shadow-sm group">
-                    <summary class="px-8 py-6 flex items-center justify-between cursor-pointer focus:outline-none">
-                        <span class="font-heading text-2xl text-brand-dark-purple">
+                    <summary class="px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between cursor-pointer focus:outline-none">
+                        <span class="font-heading text-xl sm:text-2xl text-brand-dark-purple pr-4">
                             <span class="lang-en">What are the check-in and check-out times?</span>
                             <span class="lang-af">Hoe laat is inklok en uitklok?</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-6 h-6 text-brand-purple transition-transform duration-300 group-open:rotate-180"></i>
+                        <i data-lucide="chevron-down" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-brand-purple transition-transform duration-300 group-open:rotate-180"></i>
                     </summary>
-                    <div class="px-8 pb-6 border-t border-brand-soil/20 pt-4 text-brand-dark-purple/80 text-lg">
+                    <div class="px-6 sm:px-8 pb-5 sm:pb-6 border-t border-brand-soil/20 pt-4 text-brand-dark-purple/80 text-base sm:text-lg">
                         <span class="lang-en">Check-in is from 2:00 PM and check-out is strictly at 10:00 AM.</span>
                         <span class="lang-af">Inklok is vanaf 14:00 en uitklok is stiptelik om 10:00.</span>
                     </div>
                 </details>
 
                 <details class="bg-brand-white border border-brand-soil/50 rounded-2xl overflow-hidden shadow-sm group">
-                    <summary class="px-8 py-6 flex items-center justify-between cursor-pointer focus:outline-none">
-                        <span class="font-heading text-2xl text-brand-dark-purple">
+                    <summary class="px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between cursor-pointer focus:outline-none">
+                        <span class="font-heading text-xl sm:text-2xl text-brand-dark-purple pr-4">
                             <span class="lang-en">Is firewood available on the farm?</span>
                             <span class="lang-af">Is kaggelhout beskikbaar op die plaas?</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-6 h-6 text-brand-purple transition-transform duration-300 group-open:rotate-180"></i>
+                        <i data-lucide="chevron-down" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-brand-purple transition-transform duration-300 group-open:rotate-180"></i>
                     </summary>
-                    <div class="px-8 pb-6 border-t border-brand-soil/20 pt-4 text-brand-dark-purple/80 text-lg">
+                    <div class="px-6 sm:px-8 pb-5 sm:pb-6 border-t border-brand-soil/20 pt-4 text-brand-dark-purple/80 text-base sm:text-lg">
                         <span class="lang-en">Yes, we sell firewood as an add-on for R100. You can select this option in the booking form.</span>
                         <span class="lang-af">Ja, ons verkoop kaggelhout as 'n byvoeging vir R100. Jy kan dit op die besprekingsvorm kies.</span>
                     </div>
                 </details>
 
                 <details class="bg-brand-white border border-brand-soil/50 rounded-2xl overflow-hidden shadow-sm group">
-                    <summary class="px-8 py-6 flex items-center justify-between cursor-pointer focus:outline-none">
-                        <span class="font-heading text-2xl text-brand-dark-purple">
+                    <summary class="px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between cursor-pointer focus:outline-none">
+                        <span class="font-heading text-xl sm:text-2xl text-brand-dark-purple pr-4">
                             <span class="lang-en">Are the swimming pools completely private?</span>
                             <span class="lang-af">Is die swembaddens heeltemal privaat?</span>
                         </span>
-                        <i data-lucide="chevron-down" class="w-6 h-6 text-brand-purple transition-transform duration-300 group-open:rotate-180"></i>
+                        <i data-lucide="chevron-down" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-brand-purple transition-transform duration-300 group-open:rotate-180"></i>
                     </summary>
-                    <div class="px-8 pb-6 border-t border-brand-soil/20 pt-4 text-brand-dark-purple/80 text-lg">
+                    <div class="px-6 sm:px-8 pb-5 sm:pb-6 border-t border-brand-soil/20 pt-4 text-brand-dark-purple/80 text-base sm:text-lg">
                         <span class="lang-en">Swimming pools are shared facilities. Exclusive use can sometimes be arranged (subject to availability and fees).</span>
                         <span class="lang-af">Swembaddens is gedeelde geriewe. Eksklusiewe gebruik kan soms gereël word (onderhewig aan beskikbaarheid).</span>
+                    </div>
+                </details>
+
+                <details class="bg-brand-white border border-brand-soil/50 rounded-2xl overflow-hidden shadow-sm group">
+                    <summary class="px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between cursor-pointer focus:outline-none">
+                        <span class="font-heading text-xl sm:text-2xl text-brand-dark-purple pr-4">
+                            <span class="lang-en">What are the rules and capacity for booking the Entire Farm?</span>
+                            <span class="lang-af">Wat is die reëls en kapasiteit vir die bespreking van die Hele Plaas?</span>
+                        </span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-brand-purple transition-transform duration-300 group-open:rotate-180"></i>
+                    </summary>
+                    <div class="px-6 sm:px-8 pb-5 sm:pb-6 border-t border-brand-soil/20 pt-4 text-brand-dark-purple/80 text-base sm:text-lg">
+                        <span class="lang-en">Entire Farm bookings have a maximum limit of 30 people. If your group exceeds 30 people, please contact us directly.</span>
+                        <span class="lang-af">Hele Plaas besprekings het 'n maksimum limiet van 30 mense. Indien jou groep 30 mense oorskry, kontak ons asseblief direk.</span>
+                    </div>
+                </details>
+
+                <details class="bg-brand-white border border-brand-soil/50 rounded-2xl overflow-hidden shadow-sm group">
+                    <summary class="px-6 sm:px-8 py-5 sm:py-6 flex items-center justify-between cursor-pointer focus:outline-none">
+                        <span class="font-heading text-xl sm:text-2xl text-brand-dark-purple pr-4">
+                            <span class="lang-en">What are the details for booking the Entire Farm & Campsite?</span>
+                            <span class="lang-af">Wat is die besonderhede vir die bespreking van die Hele Plaas & Kampterrein?</span>
+                        </span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-brand-purple transition-transform duration-300 group-open:rotate-180"></i>
+                    </summary>
+                    <div class="px-6 sm:px-8 pb-5 sm:pb-6 border-t border-brand-soil/20 pt-4 text-brand-dark-purple/80 text-base sm:text-lg">
+                        <span class="lang-en">The Entire Farm & Campsite package accommodates a maximum of 250 people. Pricing for this exclusive booking is to be discussed upon inquiry.</span>
+                        <span class="lang-af">Die Hele Plaas & Kampterrein pakket akkommodeer 'n maksimum van 250 mense. Pryse vir hierdie eksklusiewe bespreking moet bespreek word.</span>
                     </div>
                 </details>
             </div>
         </div>
     </section>
 
-    <footer class="bg-brand-dark-purple text-brand-earth py-20 border-t-8 border-brand-soil">
+    <footer class="bg-brand-dark-purple text-brand-earth py-16 sm:py-20 border-t-8 border-brand-soil">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-brand-soil/20 pb-16 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-12 border-b border-brand-soil/20 pb-12 sm:pb-16 mb-8">
                 
-                <!-- Brand Info (No Image Logo, Only Text) -->
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="font-heading font-bold text-3xl text-brand-white">Camp Jakkalsfontein</span>
+                <!-- Brand Info -->
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-4 sm:mb-6">
+                        <span class="font-heading font-bold text-2xl sm:text-3xl text-brand-white">Camp Jakkalsfontein</span>
                     </div>
-                    <p class="font-body text-brand-earth/80 leading-relaxed mb-8 text-lg">
+                    <p class="font-body text-brand-earth/80 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
                         <span class="lang-en">Unwind, Relax, Rejuvenate. Calm, natural, friendly — with rustic adventure.</span>
                         <span class="lang-af">Ontspan, Rus, Herleef. Kalm, natuurlik, vriendelik — met rustieke avontuur.</span>
                     </p>
-                    <div class="flex gap-4">
-                        <a href="https://www.facebook.com/share/1JWGLT6xwd/" target="_blank" class="w-12 h-12 rounded-full bg-brand-purple flex items-center justify-center hover:bg-brand-orange transition-colors shadow-lg text-brand-white">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/campjakkalsfonteintulbagh" target="_blank" class="w-12 h-12 rounded-full bg-brand-purple flex items-center justify-center hover:bg-brand-orange transition-colors shadow-lg text-brand-white">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                    </div>
                 </div>
                 
                 <!-- Info -->
-                <div>
-                    <h4 class="font-heading text-2xl text-brand-soil mb-8">
+                <div class="text-center md:text-left">
+                    <h4 class="font-heading text-xl sm:text-2xl text-brand-soil mb-4 sm:mb-8">
                         <span class="lang-en">Information</span><span class="lang-af">Inligting</span>
                     </h4>
-                    <ul class="space-y-4 font-ui text-base">
+                    <ul class="space-y-3 sm:space-y-4 font-ui text-sm sm:text-base inline-block text-left">
                         <li><strong class="text-brand-white">Check-in:</strong> 2:00 PM</li>
                         <li><strong class="text-brand-white">Check-out:</strong> 10:00 AM</li>
-                        <li><a href="#" class="hover:text-brand-orange transition-colors text-brand-earth/80">Terms & Conditions</a></li>
-                        <li><a href="#" class="hover:text-brand-orange transition-colors text-brand-earth/80">Camp Rules</a></li>
+                        <li><a href="#rules" class="hover:text-brand-orange transition-colors text-brand-earth/80">Terms & Conditions</a></li>
+                        <li><a href="#rules" class="hover:text-brand-orange transition-colors text-brand-earth/80">Camp Rules</a></li>
                     </ul>
                 </div>
 
                 <!-- Contact -->
-                <div>
-                    <h4 class="font-heading text-2xl text-brand-soil mb-8">
+                <div class="text-center md:text-left">
+                    <h4 class="font-heading text-xl sm:text-2xl text-brand-soil mb-4 sm:mb-8">
                         <span class="lang-en">Contact Us</span><span class="lang-af">Kontak Ons</span>
                     </h4>
-                    <ul class="space-y-5 font-ui text-base text-brand-earth/80">
-                        <li class="flex items-start gap-4">
-                            <i data-lucide="map-pin" class="w-6 h-6 shrink-0 text-brand-orange mt-1"></i>
-                            <span>Farm Jakkalsfontein, Tulbagh,<br/>6820, Western Cape<br/><span class="text-sm opacity-75 mt-1 block">(1.5 hours from Cape Town)</span></span>
+                    <ul class="space-y-4 sm:space-y-5 font-ui text-sm sm:text-base text-brand-earth/80 inline-block text-left">
+                        <li class="flex items-start gap-3 sm:gap-4">
+                            <i data-lucide="map-pin" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-brand-orange mt-1"></i>
+                            <span>Farm Jakkalsfontein, Tulbagh,<br/>6820, Western Cape<br/><span class="text-xs sm:text-sm opacity-75 mt-1 block">(1.5 hours from Cape Town)</span></span>
                         </li>
-                        <li class="flex items-center gap-4">
-                            <i data-lucide="phone" class="w-6 h-6 shrink-0 text-brand-orange"></i>
+                        <li class="flex items-center gap-3 sm:gap-4">
+                            <i data-lucide="phone" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-brand-orange"></i>
                             <a href="tel:+27698473309" class="hover:text-brand-white transition-colors">+27 69 847 3309</a>
                         </li>
-                        <li class="flex items-center gap-4">
-                            <i data-lucide="mail" class="w-6 h-6 shrink-0 text-brand-orange"></i>
-                            <a href="mailto:campjakkalsfontein@gmail.com" class="hover:text-brand-white transition-colors">campjakkalsfontein@gmail.com</a>
+                        <li class="flex items-center gap-3 sm:gap-4">
+                            <i data-lucide="mail" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-brand-orange"></i>
+                            <a href="mailto:campjakkalsfontein@gmail.com" class="hover:text-brand-white transition-colors truncate">campjakkalsfontein@gmail.com</a>
                         </li>
                     </ul>
                 </div>
             </div>
             
-            <div class="text-center font-ui text-sm text-brand-earth/40 tracking-widest uppercase">
+            <div class="text-center font-ui text-xs sm:text-sm text-brand-earth/40 tracking-widest uppercase">
                 <p>&copy; 2026 Camp Jakkalsfontein. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/27698473309" target="_blank" class="fixed bottom-10 right-6 md:bottom-12 md:right-8 z-50 bg-[#25D366] hover:bg-[#1ebd5c] text-white w-16 h-16 rounded-full shadow-[0_8px_24px_rgba(37,211,102,0.5)] transition-all hover:scale-110 flex items-center justify-center">
-        <!-- Using custom SVG for precise WhatsApp icon -->
-        <svg viewBox="0 0 24 24" class="w-9 h-9 fill-current" xmlns="http://www.w3.org/2000/svg">
+    <a href="https://wa.me/27698473309" target="_blank" class="fixed bottom-6 right-4 sm:bottom-8 sm:right-6 md:bottom-12 md:right-8 z-50 bg-[#25D366] hover:bg-[#1ebd5c] text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-[0_8px_24px_rgba(37,211,102,0.5)] transition-all hover:scale-110 flex items-center justify-center">
+        <svg viewBox="0 0 24 24" class="w-8 h-8 sm:w-9 sm:h-9 fill-current" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.66-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
 
+    <!-- Hidden Gallery Modal -->
+    <div id="gallery-modal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm flex flex-col items-center justify-center p-4">
+        <button onclick="closeGallery()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white hover:text-brand-orange transition p-2 z-50">
+            <i data-lucide="x" class="w-8 h-8 sm:w-10 sm:h-10"></i>
+        </button>
+
+        <button onclick="prevImage()" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white hover:text-brand-orange transition p-2 z-50 bg-black/50 rounded-full">
+            <i data-lucide="chevron-left" class="w-8 h-8 sm:w-12 sm:h-12"></i>
+        </button>
+
+        <button onclick="nextImage()" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white hover:text-brand-orange transition p-2 z-50 bg-black/50 rounded-full">
+            <i data-lucide="chevron-right" class="w-8 h-8 sm:w-12 sm:h-12"></i>
+        </button>
+
+        <div class="relative w-full max-w-5xl flex flex-col items-center">
+            <div class="text-center mb-4 sm:mb-6 px-12">
+                <h3 id="gallery-title" class="text-2xl sm:text-3xl text-brand-earth font-heading tracking-wide"></h3>
+            </div>
+            
+            <div class="w-full h-[40vh] sm:h-64 md:h-[600px] bg-transparent flex items-center justify-center relative">
+                <img id="gallery-image" src="" alt="Gallery Image" class="max-w-full max-h-full object-contain hidden rounded shadow-2xl transition-opacity duration-300 px-10 sm:px-14" />
+                <span id="gallery-placeholder" class="text-gray-400 text-sm sm:text-lg hidden font-ui text-center px-12">No images available for this section.</span>
+            </div>
+            
+            <div class="text-center mt-4 sm:mt-6 text-gray-300 font-bold tracking-widest font-ui text-sm sm:text-base">
+                <span id="gallery-counter"></span>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Initialize Lucide Icons for Amenities and internal graphics
         lucide.createIcons();
 
-        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -874,17 +1017,11 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Language Toggle Logic
         function toggleLang() {
             const htmlTag = document.documentElement;
-            if (htmlTag.lang === 'en') {
-                htmlTag.lang = 'af';
-            } else {
-                htmlTag.lang = 'en';
-            }
+            htmlTag.lang = htmlTag.lang === 'en' ? 'af' : 'en';
         }
 
-        // Terms Checkbox Validation Logic
         const termsCheckbox = document.getElementById('terms-checkbox');
         const submitBtn = document.getElementById('submit-btn');
 
@@ -900,11 +1037,80 @@
             }
         });
 
-        // Form Submit Prevent Default for Demo
         document.getElementById('booking-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Form logic is ready! You will receive an email once connected to Formspree/Netlify.');
+            alert('Form logic is ready! You will receive an email once connected.');
         });
+
+        const galleryImages = {
+            'Day Camping': ['https://placehold.co/1200x800/339900/ffffff?text=Day+Camping'],
+            'Private Room': ['https://placehold.co/1200x800/4f2d82/ffffff?text=Private+Room'],
+            'Self-Pitch Camping': ['https://placehold.co/1200x800/deb887/2a203e?text=Self-Pitch+Tent'],
+            'Vehicle Camping': ['https://placehold.co/1200x800/2a203e/ffffff?text=Vehicle+Camping'],
+            'Cottage': ['https://placehold.co/1200x800/ff8c42/ffffff?text=Cottage'],
+            'Entire Barnhouse': ['https://placehold.co/1200x800/4f2d82/ffffff?text=Barnhouse'],
+            'Indoor Day Camp': ['https://placehold.co/1200x800/339900/ffffff?text=Indoor+Day+Camp'],
+            'Entire Farm': ['https://placehold.co/1200x500/2a203e/ffffff?text=Entire+Farm'],
+            'Swimming Pool': ['https://placehold.co/800x600/339900/ffffff?text=Swimming+Pool'],
+            'Braai Area': ['https://placehold.co/800x600/ff8c42/ffffff?text=Braai+Area'],
+            'Bathrooms': ['https://placehold.co/800x600/4f2d82/ffffff?text=Bathrooms'],
+            'Showers': ['https://placehold.co/800x600/339900/ffffff?text=Showers'],
+            'Entertainment': ['https://placehold.co/800x600/4f2d82/ffffff?text=Entertainment'],
+            'Camping Space': ['https://placehold.co/800x600/339900/ffffff?text=Camping+Space'],
+            'Self Catering': ['https://placehold.co/800x600/ff8c42/ffffff?text=Self+Catering'],
+            'Hiking Trails': ['https://placehold.co/800x600/339900/ffffff?text=Hiking+Trails'],
+            'Safe Parking': ['https://placehold.co/800x600/4f2d82/ffffff?text=Safe+Parking']
+        };
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openGallery(type) {
+            const modal = document.getElementById('gallery-modal');
+            const title = document.getElementById('gallery-title');
+            title.innerText = type;
+            currentGallery = galleryImages[type] || [];
+            currentIndex = 0;
+            updateGalleryUI();
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeGallery() {
+            document.getElementById('gallery-modal').classList.add('hidden');
+            document.body.style.overflow = ''; 
+        }
+
+        function nextImage() {
+            if (currentGallery.length > 0) {
+                currentIndex = (currentIndex + 1) % currentGallery.length;
+                updateGalleryUI();
+            }
+        }
+
+        function prevImage() {
+            if (currentGallery.length > 0) {
+                currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+                updateGalleryUI();
+            }
+        }
+
+        function updateGalleryUI() {
+            const imgEl = document.getElementById('gallery-image');
+            const placeholderEl = document.getElementById('gallery-placeholder');
+            const counterEl = document.getElementById('gallery-counter');
+
+            if (currentGallery.length > 0) {
+                imgEl.src = currentGallery[currentIndex];
+                imgEl.classList.remove('hidden');
+                placeholderEl.classList.add('hidden');
+                counterEl.innerText = `${currentIndex + 1} / ${currentGallery.length}`;
+            } else {
+                imgEl.classList.add('hidden');
+                placeholderEl.classList.remove('hidden');
+                counterEl.innerText = "";
+            }
+        }
     </script>
 </body>
 </html>
